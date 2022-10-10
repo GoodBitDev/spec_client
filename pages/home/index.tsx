@@ -1,7 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {YMaps, Map, Polygon, Circle, GeoObject, ObjectManager} from "@pbe/react-yandex-maps";
 import Head from 'next/head';
-import data from '../geoJson.json'
 
 const Home = () => {
   const map = useRef(null);
