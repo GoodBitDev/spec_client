@@ -29,7 +29,10 @@ const Home: NextPage = () => {
 
   useEffect(() => {
     if (map.current) return; // initialize map only once
+    // @ts-ignore
+    // @ts-ignore
     map.current = new mapboxgl.Map({
+      // @ts-ignore
       container: mapContainer.current,
       style: 'mapbox://styles/mapbox/streets-v11',
       center: [lng, lat],
@@ -40,27 +43,33 @@ const Home: NextPage = () => {
     // map.current.scrollZoom.disable()
 
     const point = new mapboxgl.Point(lng, lat);
+    // @ts-ignore
 
     const marker = new mapboxgl.Marker({element: mark.current})
         .setLngLat([lng, lat])
+        // @ts-ignore
         .setPopup(new mapboxgl.Popup().setDOMContent(popup.current))
+        // @ts-ignore
         .addTo(map.current);
 
     const language = new MapboxLanguage();
+    // @ts-ignore
     map.current.addControl(language);
   });
 
   useEffect(() => {
+    // @ts-ignore
     map.current.on('load', () => {
 
       all.map((source, index) => {
+        // @ts-ignore
         map.current.addSource(`kiev ${index}`, {
           type: "geojson",
           data: source
         })
 
         console.log(source)
-
+        // @ts-ignore
         map.current.addLayer({
           'id': `maine ${index}`,
           'type': 'fill',
@@ -70,7 +79,7 @@ const Home: NextPage = () => {
             'fill-color': 'rgba(239, 32, 32, 0.7)', // blue color fill
           }
         })
-
+        // @ts-ignore
         map.current.addLayer({
           'id': `outline ${index}`,
           'type': 'line',
@@ -122,6 +131,7 @@ const Home: NextPage = () => {
   }, [])
 
   useEffect(() => {
+    // @ts-ignore
     map.current.setCenter([lng, lat])
   }, [lng, lat])
 
@@ -140,6 +150,7 @@ const Home: NextPage = () => {
   const colors = ['#fed976', '#feb24c', '#fd8d3c', '#fc4e2a', '#e31a1c'];
 
   const onClick = () => {
+    // @ts-ignore
     map.current.addSource(`bratsk`, {
       type: "geojson",
       data: 'https://docs.mapbox.com/mapbox-gl-js/assets/earthquakes.geojson',
@@ -154,7 +165,7 @@ const Home: NextPage = () => {
         'mag5': ['+', ['case', mag5, 1, 0]]
       }
     })
-
+    // @ts-ignore
     map.current.addLayer({
       'id': `maine`,
       'type': 'fill',
@@ -164,7 +175,7 @@ const Home: NextPage = () => {
         'fill-color': 'rgba(239, 32, 32, 0.7)', // blue color fill
       }
     })
-
+    // @ts-ignore
     map.current.addLayer({
       'id': `outline`,
       'type': 'symbol',
@@ -191,7 +202,7 @@ const Home: NextPage = () => {
 
 
   }
-
+  // @ts-ignore
   function donutSegment(start, end, r, r0, color) {
     if (end - start === 1) end -= 0.00001;
     const a0 = 2 * Math.PI * (start - 0.25);
@@ -211,7 +222,7 @@ const Home: NextPage = () => {
         r + r0 * y0
     }" fill="${color}" />`;
   }
-
+  // @ts-ignore
   function createDonutChart(props) {
     const offsets = [];
     const counts = [
@@ -259,6 +270,7 @@ ${total.toLocaleString()}
 
   function updateMarkers() {
     const newMarkers = {};
+    // @ts-ignore
     const features = map.current.querySourceFeatures('bratsk');
 
 // for every cluster on the screen, create an HTML marker for it (if we didn't yet),
@@ -270,27 +282,35 @@ ${total.toLocaleString()}
       const id = props.cluster_id;
 
 
+      // @ts-ignore
       let marker = markers[id];
       if (!marker) {
         const el = createDonutChart(props);
+        // @ts-ignore
         marker = markers[id] = new mapboxgl.Marker({
           element: el
+          // @ts-ignore
         }).setLngLat(coords).setPopup(new mapboxgl.Popup().setDOMContent(popup.current).setText(coords)).addTo(map.current)
       }
+      // @ts-ignore
       newMarkers[id] = marker;
-
+      // @ts-ignore
       if (!markersOnScreen[id]) marker.addTo(map.current);
     }
 // for every marker we've added previously, remove those that are no longer visible
     for (const id in markersOnScreen) {
+      // @ts-ignore
       if (!newMarkers[id]) markersOnScreen[id].remove();
     }
     markersOnScreen = newMarkers;
   }
 
   useEffect(() => {
+    // @ts-ignore
     if (map.current.getSource('bratsk')) {
+      // @ts-ignore
       map.current.on('render', () => {
+        // @ts-ignore
         if (!map.current.isSourceLoaded('bratsk')) return;
         updateMarkers();
       });
