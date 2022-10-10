@@ -1,17 +1,11 @@
 import type {NextPage} from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
 import mapboxgl, {Marker} from 'mapbox-gl'
 import {useEffect, useRef, useState} from "react";
 import 'mapbox-gl/dist/mapbox-gl.css';
 // @ts-ignore
 import MapboxLanguage from '@mapbox/mapbox-gl-language';
 
-import data from './kiev.json';
-import mosc from './moscowreg.json';
-import nor from './north.json';
-import all from './allinone.json'
+import all from '../src/allinone.json'
 
 mapboxgl.accessToken = "pk.eyJ1IjoiZXBpY3R5cGUiLCJhIjoiY2w5MmoyY2U2MTIxNDN1cW1iOHE2aGE0ZiJ9.dhQ3e61dUVT7FYdXGIHXEg"
 

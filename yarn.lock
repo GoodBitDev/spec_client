@@ -228,10 +228,6 @@
   dependencies:
     tslib "^2.4.0"
 
-"@types/@mapbox/mapbox-gl-language":
-  version "1.0.0"
-  resolved "https://codeload.github.com/mapbox/mapbox-gl-language/tar.gz/b5709a899624681d899b4e702110630d7e12d132"
-
 "@types/geojson@*", "@types/geojson@^7946.0.10":
   version "7946.0.10"
   resolved "https://registry.yarnpkg.com/@types/geojson/-/geojson-7946.0.10.tgz#6dfbf5ea17142f7f9a043809f1cd4c448cb68249"
