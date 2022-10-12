@@ -4,16 +4,6 @@ import {$map} from "../../src/hooks/store";
 import {useStore} from "effector-react";
 import all from '../../src/allinone.json'
 import data from '../../src/geop.json'
-import {
-  colors,
-  donutSegment,
-  mag1,
-  mag2,
-  mag3,
-  mag4,
-  mag5,
-  updateMarkers
-} from "../../src/utils/cluster";
 import mapboxgl, {Marker} from "mapbox-gl";
 import shop from '../../shop.json'
 import pin from '../../src/pin.svg';
