@@ -1,0 +1,101 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#7e7e7e",
+        "marker-size": "medium",
+        "marker-symbol": "",
+        "count": 10
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.624783515930176,
+          55.76153307022726
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#7e7e7e",
+        "marker-size": "medium",
+        "marker-symbol": "",
+        "count": 8
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.614097595214844,
+          55.75800762023549
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#7e7e7e",
+        "marker-size": "medium",
+        "marker-symbol": "",
+        "count": 5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.61890411376953,
+          55.760132587154445
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#7e7e7e",
+        "marker-size": "medium",
+        "marker-symbol": "",
+        "count": 7
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.529296875,
+          55.727110085045986
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#7e7e7e",
+        "marker-size": "medium",
+        "marker-symbol": "",
+        "count": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.676239013671875,
+          55.7464390084051
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#7e7e7e",
+        "marker-size": "medium",
+        "marker-symbol": "",
+        "count": 3
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.694091796875,
+          55.82057315625548
+        ]
+      }
+    }
+  ]
+}

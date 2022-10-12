@@ -1,5 +1,6 @@
 [
   {
+    "color": "rgba(239, 32, 32, 0.7)",
     "type": "Polygon",
     "coordinates": [
       [
@@ -3459,6 +3460,7 @@
     ]
   },
   {
+    "color": "rgba(106, 88, 144, 0.7)",
     "type": "Polygon",
     "coordinates": [
       [
@@ -7402,6 +7404,7 @@
     ]
   },
   {
+    "color": "rgba(188, 116, 64, 0.7)",
     "type": "MultiPolygon",
     "coordinates": [
       [
@@ -10983,6 +10986,7 @@
     ]
   },
   {
+    "color": "rgba(106, 88, 144, 0.7)",
     "type": "MultiPolygon",
     "coordinates": [
       [
@@ -14628,6 +14632,7 @@
     ]
   },
   {
+    "color": "rgba(201, 92, 31, 0.7)",
     "type": "Polygon",
     "coordinates": [
       [
@@ -22843,6 +22848,7 @@
     ]
   },
   {
+    "color": "rgba(106, 88, 144, 0.7)",
     "type": "MultiPolygon",
     "coordinates": [
       [
@@ -26152,6 +26158,7 @@
     ]
   },
   {
+    "color": "rgba(87, 77, 234, 0.7)",
     "type": "Polygon",
     "coordinates": [
       [
@@ -29289,6 +29296,7 @@
     ]
   },
   {
+    "color": "rgba(106, 88, 144, 0.7)",
     "type": "MultiPolygon",
     "coordinates": [
       [
@@ -42990,6 +42998,7 @@
     ]
   },
   {
+    "color": "rgba(87, 77, 234, 0.7)",
     "type": "Polygon",
     "coordinates": [
       [
@@ -54464,5 +54473,4 @@
       ]
     ]
   }
-
 ]

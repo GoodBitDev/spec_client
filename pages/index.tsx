@@ -62,7 +62,6 @@ const Home: NextPage = () => {
           data: source
         })
 
-        console.log(source)
         // @ts-ignore
         map.current.addLayer({
           'id': `maine ${index}`,
