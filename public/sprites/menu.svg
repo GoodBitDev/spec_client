@@ -1,0 +1,7 @@
+<svg width="0" height="0" class="hidden">
+    <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 16" id="menu">
+        <line x1="1" y1="1" x2="25" y2="1" stroke="white" stroke-width="2" stroke-linecap="round"></line>
+        <line x1="1" y1="8" x2="25" y2="8" stroke="white" stroke-width="2" stroke-linecap="round"></line>
+        <line x1="1" y1="15" x2="25" y2="15" stroke="white" stroke-width="2" stroke-linecap="round"></line>
+    </symbol>
+</svg>

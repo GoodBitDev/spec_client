@@ -1,0 +1,9 @@
+.logo {
+    -webkit-clip-path: polygon(0 0, 100% 0, 80% 89%, 50% 100%, 20% 90%);
+    clip-path: polygon(0 0, 100% 0, 80% 89%, 50% 100%, 20% 90%);
+    @apply max-w-[344px] w-full h-[149px] bg-white absolute shadow-logo
+}
+
+.container {
+    @apply max-w-[344px] w-full h-full relative
+}

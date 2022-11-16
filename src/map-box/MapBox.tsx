@@ -1,7 +1,7 @@
 import React from 'react';
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
-import {setMapFx} from "../hooks/store";
+import {setMapFx} from "./store";
 
 interface MapboxMapProps {
   initialOptions?: Omit<mapboxgl.MapboxOptions, "container">;
@@ -49,7 +49,7 @@ function MapboxMap({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return <div ref={mapNode} style={{width: "100%", height: "100%"}}/>;
+  return <div ref={mapNode} className='absolute left-0 right-0 top-0 bottom-0 h-full w-full'/>;
 }
 
 export default MapboxMap;
