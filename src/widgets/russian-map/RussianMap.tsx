@@ -1,6 +1,10 @@
 import React, { FC, SVGProps } from "react";
 import * as Popover from "@radix-ui/react-popover";
 import { PopoverPortal } from "@radix-ui/react-popover";
+import { useStore } from "effector-react";
+import { $mapPoints } from "entities/map-region";
+import { Icon } from "shared/UI/icon/icon";
+import { ScrollArea } from "shared/UI/scroll-area/ScrollArea";
 
 const mapCoord = [
   {
@@ -918,6 +922,10 @@ const mapCoord = [
 
 
 export const RussianMap: FC<SVGProps<SVGSVGElement>> = ({ className, ...props }) => {
+  const points = useStore($mapPoints);
+
+  console.log(points)
+
   return (
     <>
 
@@ -947,12 +955,41 @@ export const RussianMap: FC<SVGProps<SVGSVGElement>> = ({ className, ...props })
               {el.ellipse && (
                 <>
                   <Popover.Trigger asChild>
-                    <ellipse className="cursor-alias" stroke="#FFFFFF" fill="#EF2020" rx={el.ellipse.rx}
-                             ry={el.ellipse.ry} cx={el.ellipse.cx} cy={el.ellipse.cy} />
+                    {points[el.id]?.length > 1 && (
+                      <ellipse className="cursor-alias" stroke="#FFFFFF" fill="#EF2020" rx={el.ellipse.rx}
+                               ry={el.ellipse.ry} cx={el.ellipse.cx} cy={el.ellipse.cy} />
+                    )}
                   </Popover.Trigger>
                   <PopoverPortal>
-                    <Popover.Content side={"right"} className="bg-white py-[12px] px-[20px] rounded-[10px]">
-                      hello world
+                    <Popover.Content side={"right"} className="bg-white py-[12px]  rounded-[10px]  ">
+                      <div className="border-b border-b-grey-500 px-[20px] text-blue-700 text-2xl pb-[15px]">
+                        {Object.keys(points).map((key) => key === el.id && el.title)}
+                      </div>
+
+                      <ScrollArea>
+                        <div className="pl-[20px] pr-[40px] max-h-[300px]">
+                          {points[el.id]?.map((item) => {
+                            const todayDate = new Date().toISOString().split("T")[0];
+                            let title = ""
+
+                            const date = new Date(item.fields.data_nachala).toISOString().split("T")[0].replace( /-/g, "." )
+                            return (
+                              <div className='flex justify-between'>
+                                <div className="font-medium">
+                                  {item.fields.postavschik}
+                                </div>
+                                <div className='flex flex-col items-end'>
+                                  <p className='underline'>{todayDate > date ? "Акция проведена" : "Акция запланирована"}</p>
+                                  <div className='flex items-center'>
+                                    {todayDate > date ? <Icon className={'w-[15px] h-[15px] mr-[10px]'} name={'share_done'} section={'share_done'} /> :  <Icon className={'w-[15px] h-[15px] mr-[10px]'} name={'share_future'} section={'share_future'} />}
+                                    <span>{date}</span>
+                                  </div>
+                                </div>
+                              </div>
+                            )
+                          })}
+                        </div>
+                      </ScrollArea>
                     </Popover.Content>
                   </PopoverPortal>
                 </>

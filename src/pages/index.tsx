@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
 import dynamic from 'next/dynamic'
 import {NextPageWithLayout} from "pages/_app";
 import {MainLayout} from "shared/UI/main-layout/MainLayout";
 // import {RussianMap} from "widgets/russian-map/RussianMap";
 import {InteractiveMenu} from "widgets/interactive-menu/InteractiveMenu";
+import { GetServerSideProps } from 'next';
+import router from 'next/router';
+import Link from "next/link";
+import { MapApi } from "shared/api/map";
+import { setMapPointsFx } from "entities/map-region";
+import { setTokenToStore } from "entities/user";
+import { signIn, SignInResponse } from "next-auth/react";
 
 const FilterInfo = dynamic(() =>
     import('widgets/filter-info/FilterInfo').then((mod) => mod.FilterInfo)
@@ -14,6 +21,14 @@ const RussianMap = dynamic(() =>
 )
 
 const MainPage: NextPageWithLayout = () => {
+
+  useEffect(() => {
+    MapApi.getP()
+      .then(res => setMapPointsFx(res));
+    MapApi.getFilters()
+      .then(res => console.log(res))
+  }, [])
+
   return (
       <div className='flex-col pt-32 pb-16 bg-blue-500'>
         <h1 className='text-[55px] mb-12 text-white text-center font-semibold uppercase'>Карта представителей</h1>
@@ -39,6 +54,11 @@ const MainPage: NextPageWithLayout = () => {
             </div>
           </div>
         </div>
+        <button>
+          <Link href={"/map"}>
+            <a>MAP</a>
+          </Link>
+        </button>
         <RussianMap
             className='
             max-h-[900px]
@@ -65,4 +85,15 @@ MainPage.getLayout = (page) => {
   )
 }
 
+export const getServerSideProps: GetServerSideProps = async (context) => {
+
+
+  return {
+    props: {}, // will be passed to the page component as props
+  }
+}
+
 export default MainPage
+
+
+
