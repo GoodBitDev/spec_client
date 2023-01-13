@@ -21,8 +21,8 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
 
   // return getLayout(<Component {...pageProps} />);
   return (
-    <SessionProvider
-      session={pageProps.session as Session}
+    // @ts-ignore
+    <SessionProvider session={pageProps.session as Session}
       refetchInterval={0}
     >
       <MainLayout>

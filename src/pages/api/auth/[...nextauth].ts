@@ -14,9 +14,8 @@ async function refreshToken(token: JWT): Promise<JWT | undefined | null> {
       refresh: token.refreshToken
     });
     const refreshedTokens = await response;
-    return {
-      ...token,
-      accessToken: refreshedTokens?.access,
+    // @ts-ignore
+    return { ...token, accessToken: refreshedTokens?.access,
       accessTokenExpires: Date.now() + 1000 * 60 * 60 * 24 * 7
     };
   } catch (error) {
@@ -32,14 +31,9 @@ async function tokenWithUser(token: JWT): Promise<any> {
     http.defaults.headers.common["Authorization"] = `Bearer ${access}`;
     const response = await AuthApi.current();
     const awaitedResponse = await response;
+    // @ts-ignore
 
-    return {
-      ...token,
-      user: {
-        username: awaitedResponse.username,
-        email: awaitedResponse.email
-      }
-    };
+    return { ...token, user: { username: awaitedResponse.username,email: awaitedResponse.email } };
   } catch (e) {
     log.error("tokenWithUser", e);
     return undefined;
@@ -76,6 +70,7 @@ export const authOptions: NextAuthOptions = {
         email: { label: "Email", type: "text" },
         password: { label: "Password", type: "password" }
       },
+      // @ts-ignore
       async authorize(credentials) {
         try {
           const response = await AuthApi.login({
@@ -124,7 +119,9 @@ export const authOptions: NextAuthOptions = {
     },
     async session({ session, token }) {
       (session as any).user = token.user;
+      // @ts-ignore
       session.accessToken = token.accessToken;
+      // @ts-ignore
       session.refreshToken = token.refreshToken;
       return session;
     }

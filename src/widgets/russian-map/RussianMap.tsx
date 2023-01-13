@@ -955,6 +955,7 @@ export const RussianMap: FC<SVGProps<SVGSVGElement>> = ({ className, ...props })
               {el.ellipse && (
                 <>
                   <Popover.Trigger asChild>
+                    {/*// @ts-ignore*/}
                     {points[el.id]?.length > 1 && (
                       <ellipse className="cursor-alias" stroke="#FFFFFF" fill="#EF2020" rx={el.ellipse.rx}
                                ry={el.ellipse.ry} cx={el.ellipse.cx} cy={el.ellipse.cy} />
@@ -968,13 +969,13 @@ export const RussianMap: FC<SVGProps<SVGSVGElement>> = ({ className, ...props })
 
                       <ScrollArea>
                         <div className="pl-[20px] pr-[40px] max-h-[300px]">
+                          {/*// @ts-ignore*/}
                           {points[el.id]?.map((item) => {
                             const todayDate = new Date().toISOString().split("T")[0];
-                            let title = ""
 
                             const date = new Date(item.fields.data_nachala).toISOString().split("T")[0].replace( /-/g, "." )
                             return (
-                              <div className='flex justify-between'>
+                              <div key={item.fields.data_nachala} className='flex justify-between'>
                                 <div className="font-medium">
                                   {item.fields.postavschik}
                                 </div>

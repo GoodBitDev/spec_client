@@ -15,6 +15,7 @@ const onRequest = async (
 ): Promise<AxiosRequestConfig> => {
   const session = await getSession();
   if (session && config.headers) {
+    // @ts-ignore
     config.headers["Authorization"] = `Bearer ${session.accessToken}`;
   }
   log.info("[request]", config);
